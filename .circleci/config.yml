@@ -61,7 +61,6 @@ workflows:
                 - main
 
   "run_backend-canada-prod":
-    when: << pipeline.parameters.run_backend-canada-prod >>
     jobs:
       - job_deploy_backend:
           name: job_deploy_backend_dry_run-canada-prod
