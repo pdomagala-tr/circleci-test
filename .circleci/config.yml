@@ -41,7 +41,6 @@ jobs:
 workflows:
   version: 2
   "run_backend-canada-develop":
-    when: << pipeline.parameters.run_backend-canada-develop >>
     jobs:
       - job_deploy_backend:
           name: job_deploy_backend_dry_run-canada-develop
@@ -56,19 +55,6 @@ workflows:
                 - main
       - job_deploy_backend:
           name: job_deploy_backend-canada-develop
-          context:
-            - cue-health-api-deployments/canada-develop
-          app_name: cue-health-api
-          env_name: canada-develop
-          filters:
-            branches:
-              only:
-                - main
-  "run_frontend-canada-develop":
-    when: << pipeline.parameters.run_frontend-canada-develop >>
-    jobs:
-      - job_deploy_frontend:
-          name: job_deploy_frontend_canada-develop
           context:
             - cue-health-api-deployments/canada-develop
           app_name: cue-health-api
@@ -108,16 +94,3 @@ workflows:
                 - main
           requires:
            - hold
-  "run_frontend-canada-prod":
-    when: << pipeline.parameters.run_frontend-canada-prod >>
-    jobs:
-      - job_deploy_frontend:
-          name: job_deploy_frontend_canada-prod
-          context:
-            - cue-health-api-deployments/canada-prod
-          app_name: cue-health-api
-          env_name: canada-prod
-          filters:
-            branches:
-              only:
-                - main
