@@ -40,25 +40,6 @@ jobs:
 
 workflows:
   version: 2
-  "run_backend-canada-develop":
-    jobs:
-      - job_deploy_backend:
-          name: job_deploy_backend_dry_run-canada-develop
-          dry_run: true
-          app_name: cue-health-api
-          env_name: canada-develop
-          filters:
-            branches:
-              ignore:
-                - main
-      - job_deploy_backend:
-          name: job_deploy_backend-canada-develop
-          app_name: cue-health-api
-          env_name: canada-develop
-          filters:
-            branches:
-              only:
-                - main
 
   "run_backend-canada-prod":
     jobs:
@@ -73,8 +54,6 @@ workflows:
                 - main
       - hold:
           type: approval
-          requires:
-           -  job_deploy_backend
       - job_deploy_backend:
           name: job_deploy_backend-canada-prod
           app_name: cue-health-api
