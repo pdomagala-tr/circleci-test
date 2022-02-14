@@ -74,7 +74,7 @@ workflows:
       - hold:
           type: approval
           requires:
-           -  job_deploy_backend-canada-prod
+           -  job_deploy_backend
       - job_deploy_backend:
           name: job_deploy_backend-canada-prod
           app_name: cue-health-api
