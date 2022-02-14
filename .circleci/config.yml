@@ -54,6 +54,10 @@ workflows:
                 - main
       - hold:
           type: approval
+          filters:
+            branches:
+              only:
+                - main
       - job_deploy_backend:
           name: job_deploy_backend-canada-prod
           app_name: cue-health-api
