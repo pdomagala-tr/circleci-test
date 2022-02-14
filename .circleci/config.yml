@@ -45,8 +45,6 @@ workflows:
       - job_deploy_backend:
           name: job_deploy_backend_dry_run-canada-develop
           dry_run: true
-          context:
-            - cue-health-api-deployments/canada-develop
           app_name: cue-health-api
           env_name: canada-develop
           filters:
@@ -55,8 +53,6 @@ workflows:
                 - main
       - job_deploy_backend:
           name: job_deploy_backend-canada-develop
-          context:
-            - cue-health-api-deployments/canada-develop
           app_name: cue-health-api
           env_name: canada-develop
           filters:
@@ -70,8 +66,6 @@ workflows:
       - job_deploy_backend:
           name: job_deploy_backend_dry_run-canada-prod
           dry_run: true
-          context:
-            - cue-health-api-deployments/canada-prod
           app_name: cue-health-api
           env_name: canada-prod
           filters:
@@ -84,8 +78,6 @@ workflows:
            -  job_deploy_backend-canada-prod
       - job_deploy_backend:
           name: job_deploy_backend-canada-prod
-          context:
-            - cue-health-api-deployments/canada-prod
           app_name: cue-health-api
           env_name: canada-prod
           filters:
