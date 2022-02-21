@@ -52,7 +52,7 @@ workflows:
             branches:
               ignore:
                 - main
-      - hold:
+      - prod_deploy_approval:
           type: approval
           filters:
             branches:
@@ -67,4 +67,4 @@ workflows:
               only:
                 - main
           requires:
-           - hold
+           - prod_deploy_approval
